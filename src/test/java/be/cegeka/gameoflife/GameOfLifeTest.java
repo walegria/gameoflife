@@ -11,10 +11,10 @@ public class GameOfLifeTest {
 
     @Test
     public void liveCellWithFewerThanTwoLiveNeighboursDies() throws Exception {
-        boolean dead = false;
-        boolean live = true;
+        Cell dead = new Cell(false);
+        Cell live = new Cell(true);
 
-        List<List<Boolean>> world = Arrays.asList(
+        List<List<Cell>> world = Arrays.asList(
             Arrays.asList(dead, dead, live),
             Arrays.asList(live, live, live),
             Arrays.asList(dead, dead, live)
@@ -27,7 +27,15 @@ public class GameOfLifeTest {
         );
     }
 
-    private List<List<Boolean>> tick(List<List<Boolean>> world) {
+    private List<List<Cell>> tick(List<List<Cell>> world) {
         return world;
+    }
+
+    private class Cell {
+        private boolean alive;
+
+        public Cell(boolean alive) {
+            this.alive = alive;
+        }
     }
 }
