@@ -10,7 +10,7 @@ class Cell {
     }
 
     public static Cell dead() {
-        return new Cell(true);
+        return new Cell(false);
     }
 
     private Cell(boolean alive) {
