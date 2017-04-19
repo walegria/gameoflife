@@ -28,6 +28,24 @@ public class GameOfLifeTest {
         );
     }
 
+    @Test
+    public void liveCellWithTwoOrThreeLiveNeighboursLivesOnToTheNextGeneration() throws Exception {
+        Cell dead = Cell.dead();
+        Cell live = Cell.live();
+
+        List<List<Cell>> world = Arrays.asList(
+            Arrays.asList(dead, dead, live),
+            Arrays.asList(live, live, live),
+            Arrays.asList(dead, dead, live)
+        );
+
+        assertThat(tick(world)).containsExactly(
+            Arrays.asList(dead, dead, live),
+            Arrays.asList(dead, live, live),
+            Arrays.asList(dead, dead, live)
+        );
+    }
+
     private List<List<Cell>> tick(List<List<Cell>> world) {
         return world;
     }
