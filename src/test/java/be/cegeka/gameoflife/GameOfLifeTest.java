@@ -12,8 +12,8 @@ public class GameOfLifeTest {
 
     @Test
     public void liveCellWithFewerThanTwoLiveNeighboursDies() throws Exception {
-        Cell dead = new Cell(false);
-        Cell live = new Cell(true);
+        Cell dead = Cell.dead();
+        Cell live = Cell.live();
 
         List<List<Cell>> world = Arrays.asList(
             Arrays.asList(dead, dead, live),
@@ -34,26 +34,34 @@ public class GameOfLifeTest {
 
     @Test
     public void cellIsEqualToAnotherCellWhenAliveIsTheSame() throws Exception {
-        assertThat(new Cell(true)).isEqualTo(new Cell(true));
-        assertThat(new Cell(false)).isEqualTo(new Cell(false));
-        assertThat(new Cell(true)).isNotEqualTo(new Cell(false));
-        assertThat(new Cell(false)).isNotEqualTo(new Cell(true));
+        assertThat(Cell.live()).isEqualTo(Cell.live());
+        assertThat(Cell.dead()).isEqualTo(Cell.dead());
+        assertThat(Cell.live()).isNotEqualTo(Cell.dead());
+        assertThat(Cell.dead()).isNotEqualTo(Cell.live());
     }
 
     @Test
     public void cellsToString_WhenAliveIsTrue_ThenLive() throws Exception {
-        assertThat(new Cell(true).toString()).isEqualTo("live");
+        assertThat(Cell.live().toString()).isEqualTo("live");
     }
 
     @Test
     public void cellsToString_WhenAliveIsFalse_ThenDead() throws Exception {
-        assertThat(new Cell(false).toString()).isEqualTo("dead");
+        assertThat(Cell.dead().toString()).isEqualTo("dead");
     }
 
-    private class Cell {
+    private static class Cell {
         private boolean alive;
 
-        public Cell(boolean alive) {
+        public static Cell live() {
+            return new Cell(true);
+        }
+
+        public static Cell dead() {
+            return new Cell(true);
+        }
+
+        private Cell(boolean alive) {
             this.alive = alive;
         }
 
