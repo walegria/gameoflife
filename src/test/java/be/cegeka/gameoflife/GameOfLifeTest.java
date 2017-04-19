@@ -11,21 +11,17 @@ public class GameOfLifeTest {
 
     @Test
     public void liveCellWithFewerThanTwoLiveNeighboursDies() throws Exception {
-        boolean liveCell = true;
-        boolean deadCell = false;
-        boolean deadNeighbour = false;
-        boolean liveNeighbour = true;
 
         List<List<Boolean>> world = Arrays.asList(
-            Arrays.asList(deadNeighbour, deadNeighbour, true),
-            Arrays.asList(liveCell,      liveNeighbour, true),
-            Arrays.asList(deadNeighbour, deadNeighbour, true)
+            Arrays.asList(false, false, true),
+            Arrays.asList(true , true , true),
+            Arrays.asList(false, false, true)
         );
 
         assertThat(tick(world)).containsExactly(
-            Arrays.asList(deadNeighbour, deadNeighbour, true),
-            Arrays.asList(deadCell,      liveNeighbour, true),
-            Arrays.asList(deadNeighbour, deadNeighbour, true)
+            Arrays.asList(false, false, true),
+            Arrays.asList(false, true , true),
+            Arrays.asList(false, false, true)
         );
     }
 
