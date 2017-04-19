@@ -12,7 +12,7 @@ public class GameOfLifeTest {
     @Test
     public void liveCellWithFewerThanTwoLiveNeighboursDies() throws Exception {
         boolean liveCell = true;
-        boolean deadCell = true;
+        boolean deadCell = false;
         boolean deadNeighbour = false;
         boolean liveNeighbour = true;
 
