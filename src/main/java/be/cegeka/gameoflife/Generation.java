@@ -10,6 +10,7 @@ public class Generation {
         this.cells = cells;
     }
 
+    @SafeVarargs
     public static Generation of(List<Cell>... cells) {
         return new Generation(Arrays.asList(cells));
     }
