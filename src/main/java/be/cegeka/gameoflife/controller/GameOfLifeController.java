@@ -1,4 +1,4 @@
-package be.cegeka.gameoflife;
+package be.cegeka.gameoflife.controller;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,5 +22,4 @@ public class GameOfLifeController {
         //logger.info(currentWorld);
         return currentWorld;
     }
-
 }
