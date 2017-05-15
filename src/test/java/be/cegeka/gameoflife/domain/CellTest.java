@@ -18,6 +18,16 @@ public class CellTest {
     public void cellGetPosition_ShouldReturnPosition(){
         Position position = new Position(0,0);
         assertThat(cellZero.getPosition()).isEqualTo(position);
+    }
 
+    @Test
+    public void cellGetHorizontalPosition_ShouldReturnPositionXValue(){
+        Cell cell = new Cell(new Position(1,0));
+        assertThat(cell.getHorizontalPositionValue()).isEqualTo(1);
+    }
+    @Test
+    public void cellGetVerticalPosition_ShouldReturnPositionYValue(){
+        Cell cell = new Cell(new Position(1,0));
+        assertThat(cellZero.getVerticalPositionValue()).isEqualTo(0);
     }
 }

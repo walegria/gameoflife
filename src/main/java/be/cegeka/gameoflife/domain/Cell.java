@@ -12,6 +12,14 @@ public class Cell {
         return position;
     }
 
+    public int getHorizontalPositionValue(){
+        return position.getX();
+    }
+
+    public int getVerticalPositionValue(){
+        return position.getY();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
