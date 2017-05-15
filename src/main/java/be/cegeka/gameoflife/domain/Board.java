@@ -25,4 +25,15 @@ public class Board {
     public int hashCode() {
         return alives != null ? alives.hashCode() : 0;
     }
+
+    public int neighbours(Cell cell) {
+        int neigboursCount = 0;
+        for (int verticalNeighbours = -1; verticalNeighbours <= 1; verticalNeighbours += 2) {
+            if (alives.contains(new Cell(new Position(cell.getPosition().getX(), cell.getPosition().getY() + verticalNeighbours)))) {
+                neigboursCount++;
+            }
+        }
+
+        return neigboursCount;
+    }
 }
