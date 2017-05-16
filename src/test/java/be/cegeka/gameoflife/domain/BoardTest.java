@@ -8,26 +8,8 @@ public class BoardTest {
 
     private Board board;
 
-    private Board makeSquareBoard(){
-        Cell cellOne = new Cell(new Position(0,0));
-        Cell cellTwo = new Cell(new Position(0,1));
-        Cell cellThree = new Cell(new Position(1,0));
-        Cell cellFour = new Cell(new Position(1,1));
-
-        return new Board(cellOne,cellTwo,cellThree,cellFour);
-    }
-
     @Test
-    public void boardShouldBeEqual_WhenGivenSameCells(){
-        board = makeSquareBoard();
-        Board expected = makeSquareBoard();
-
-        assertThat(board).isEqualTo(expected);
-    }
-
-    //Also the test that cells should not count themself as a neighbour
-    @Test
-    public void cellShouldHaveNoNeighbours_WhenAloneOnBoard(){
+    public void boardWithOnlyOneCell_ShouldHaveNoNeighbours(){
         Cell cell = new Cell(new Position(0,0));
         board =  new Board(cell);
 
@@ -35,7 +17,7 @@ public class BoardTest {
     }
 
     @Test
-    public void cellShouldCountVerticalNeighbours(){
+    public void boardWithVerticalAdjacentCells_ShouldOnlyCountVerticalNeighbours(){
         Cell cellOne = new Cell(new Position(0,0));
         Cell cellTwo = new Cell(new Position(0,1));
 
