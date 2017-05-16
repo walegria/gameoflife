@@ -11,6 +11,13 @@ public class Board {
         alives = new HashSet<Cell>(Arrays.asList(cells));
     }
 
+    public int neighbours(Cell cell) {
+        int neigboursCount = 0;
+        neigboursCount = getVerticalNeigboursCount(cell, neigboursCount);
+
+        return neigboursCount;
+    }
+
     private int getVerticalNeigboursCount(Cell cell, int neigboursCount) {
         for (int verticalNeighbours = -1; verticalNeighbours <= 1; verticalNeighbours += 2) {
             if (alives.contains(new Cell(getPositionOfVerticalNeighbour(cell, verticalNeighbours)))) {
