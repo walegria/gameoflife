@@ -19,7 +19,7 @@ public class BoardTest {
     public void boardWithOnlyOneCell_ShouldHaveNoNeighbours(){
         board =  new Board(cellZero);
 
-        assertThat(board.cellNeighbours(cellZero)).isEqualTo(0);
+        assertThat(board.cellCountNeighbours(cellZero)).isEqualTo(0);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class BoardTest {
         Cell cellAdjacentVertical = new Cell(new Position(0,1));
 
         board = new Board(cellZero,cellAdjacentVertical);
-        assertThat(board.cellNeighbours(cellZero)).isEqualTo(1);
+        assertThat(board.cellCountNeighbours(cellZero)).isEqualTo(1);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class BoardTest {
         Cell cellAdjacentHorizontalTwo = new Cell(new Position(-1,0));
 
         board = new Board (cellZero,cellAdjacentHorizontal,cellAdjacentHorizontalTwo);
-        assertThat(board.cellNeighbours(cellZero)).isEqualTo(2);
+        assertThat(board.cellCountNeighbours(cellZero)).isEqualTo(2);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class BoardTest {
         Cell cellDiagonalBottomLeft = new Cell (new Position(-1,-1));
 
         board = new Board (cellZero,cellAdjacentHorizontal,cellAdjacentHorizontalTwo,cellAdjacentVertical,cellDiagonalTopLeft,cellDiagonalBottomLeft);
-        assertThat(board.cellNeighbours(cellZero)).isEqualTo(5);
+        assertThat(board.cellCountNeighbours(cellZero)).isEqualTo(5);
     }
 
 

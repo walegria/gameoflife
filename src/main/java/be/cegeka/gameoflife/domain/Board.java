@@ -11,7 +11,7 @@ public class Board {
         alives = new HashSet<Cell>(Arrays.asList(cells));
     }
 
-    public int cellNeighbours(Cell cell) {
+    public int cellCountNeighbours(Cell cell) {
         int neigboursCount = getVerticalNeigboursCount(cell);
         neigboursCount += getHorizontalNeighboursCount(cell);
         neigboursCount += getDiagonalNeighboursCount(cell);
@@ -63,6 +63,4 @@ public class Board {
         return new Position(cell.getHorizontalPositionValue()+ horizontalValue, cell.getVerticalPositionValue()+verticalValue);
 
     }
-
-
 }
